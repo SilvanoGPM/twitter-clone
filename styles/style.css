@@ -1,9 +1,25 @@
 :root {
+  --border-color: #eff3f4;
+  --background-color: #ffffff;
+  --at-sing-color: #536471;
+  --item-hover-color: #e7e7e8;
+  --principal-color: #1d9bf0;
+  --text-color: #0f1419;
   --header-height: 53px;
+  --white: #eff3f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  font-family: "Segoe UI";
+  background-color: var(--background-color);
 }
 
 .header {
-  background-color: red;
   position: fixed;
   width: 100%;
   height: var(--header-height);
@@ -16,13 +32,196 @@
 .navbar {
   height: 52.5px;
   width: 100%;
-  background-color: blue;
   position: fixed;
   bottom: 0;
+  border-top: var(--border-color) 1px solid;
+  padding: 0.05rem 2rem;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+  transform: 1s ease-in-out;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  min-width: 64px;
+  flex: 1;
+  justify-content: space-around;
+  transform: 1s ease-in-out;
+}
+
+.icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  margin: 0;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.icon .icon__ball {
+  position: absolute;
+  top: 7px;
+  left: 35px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--principal-color);
+}
+
+.icon:hover {
+  background-color: var(--item-hover-color);
+}
+
+.icon.icon--exploration {
+  display: none;
+}
+
+.icon.icon--search {
+  display: flex;
+}
+
+.icon--selected {
+  font-weight: bold;
+}
+
+.icon__label {
+  display: none;
+}
+
+.logo {
+  height: 56px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.actions {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 64px;
+  gap: 1rem;
+}
+
+.new_tweet {
+  border: none;
+  padding: 1rem;
+  background-color: var(--principal-color);
+  color: var(--white);
+  transition: ease-in-out 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -150%;
+  right: 25px;
+  position: absolute;
+}
+
+.new_tweet--full {
+  border-radius: 30px;
+  width: 100%;
+  height: 50px;
+  display: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.new_tweet--round {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+.profile {
+  border: none;
+  padding: 2rem;
+  transition: ease-in-out 0.25s;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.profile i {
+  display: none;
+}
+
+.profile figure {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile:hover {
+  background-color: var(--item-hover-color);
+}
+
+.profile__info {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 50%;
+}
+
+.profile__name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.profile__at_sign {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--at-sing-color);
+}
+
+.profile__at_sign,
+.profile__name {
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.new_tweet:hover {
+  filter: brightness(0.95);
+}
+
+.logo:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+
+.hiddable--md.hiddable--md,
+.hiddable--lg.hiddable--lg {
+  display: none;
 }
 
 .main {
-  background-color: green;
   min-height: 100vh;
   height: 100vh;
 }
@@ -30,29 +229,82 @@
 .content {
   width: 100%;
   height: 100%;
-  background-color: darkgoldenrod;
 }
 
 .feed {
   width: 100%;
   height: 100%;
-  background-color: purple;
   display: none;
 }
 
 @media screen and (min-width: 500px) {
+  .hiddable--md.hiddable--md {
+    display: flex;
+  }
+
   .navbar {
     top: 0;
     bottom: 0;
     height: 100%;
-    min-width: 68px;
-    width: 100%;
+    min-width: calc(64px + 2rem);
+    width: 16vw;
     max-width: 193px;
+    border-top: none;
+    border-right: var(--border-color) 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    align-items: flex-end;
+  }
+
+  .actions {
+    display: flex;
+  }
+
+  .new_tweet {
+    position: static;
+  }
+
+  .navbar__content {
+    flex: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .icon {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile {
+    display: flex;
+  }
+
+  .content {
+    border-right: var(--border-color) 1px solid;
   }
 }
 
 @media screen and (min-width: 1005px) {
   .main {
+    display: flex;
+  }
+
+  .navbar {
+    width: 100%;
+    align-items: flex-end;
+    padding-right: 1rem;
+  }
+
+  .icon.icon--search {
+    display: none;
+  }
+
+  .icon.icon--exploration {
     display: flex;
   }
 
@@ -67,12 +319,71 @@
     right: 0;
     height: 100%;
     width: 33%;
-    max-width: 380px;
+    max-width: 433px;
   }
 }
 
 @media screen and (min-width: 1282px) {
+  .hiddable--lg.hiddable--lg {
+    display: flex;
+  }
+
+  .icon__label.icon__label {
+    display: flex;
+    flex: 1;
+    font-size: 1.25rem;
+  }
+
   .navbar {
     max-width: 317px;
+    align-items: flex-start;
+    padding-left: 3rem;
+  }
+
+  .navbar__content {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .icon {
+    border-radius: 30px;
+    padding: 0.7rem 1rem;
+    width: auto;
+    height: 50px;
+    margin: 0;
+    justify-content: space-between;
+  }
+
+  .icon i {
+    margin-right: 1rem;
+    width: 30px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .new_tweet--full,
+  .profile__info {
+    display: flex;
+  }
+
+  .new_tweet--round {
+    display: none;
+  }
+
+  .profile {
+    width: 100%;
+    height: 60px;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .profile i {
+    display: block;
+  }
+
+  .profile__info {
+    margin-right: 1.5rem;
   }
 }

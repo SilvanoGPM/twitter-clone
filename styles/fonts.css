@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Segoe UI';
+  src: url(../webfonts/Segoe\ UI.woff);
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: url(../webfonts/Segoe\ UI\ Bold.woff);
+}
+
+@font-face {
+  font-family: 'Segoe UI Italic';
+  src: url(../webfonts/Segoe\ UI\ Italic.woff);
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold Italic';
+  src: url(../webfonts/Segoe\ UI\Bold\ Italic.woff);
+}

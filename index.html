@@ -7,14 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./styles/reset.css" />
+  <link rel="stylesheet" href="./styles/all.min.css" />
+  <link rel="stylesheet" href="./styles/fonts.css" />
   <link rel="stylesheet" href="./styles/style.css" />
+
   <link rel="icon" type="image/png" href="./assets/favicon.png">
 
   <title>Página Inicial / Twitter Clone</title>
 </head>
 
 <body>
-
   <header class="header__container">
     <div class="header">
 
@@ -23,7 +25,81 @@
     <div class="header__fix"></div>
 
     <nav class="navbar">
+      <div class="navbar__content">
+        <a href="#" class="hiddable--md">
+          <figure class="logo">
+            <img alt="logo" src="assets/favicon.png" />
+          </figure>
+        </a>
 
+        <div class="icon icon--selected" title="Página Inicial">
+          <i class="fas fa-home"></i>
+          <span class="icon__ball"></span>
+          <span class="icon__label">Página Inicial</span>
+        </div>
+
+        <div class="icon icon--search" title="Pesquisar">
+          <i class="fas fa-search"></i>
+        </div>
+
+        <div class="icon icon--exploration" title="Explorar">
+          <i class="fas fa-hashtag"></i>
+          <span class="icon__label">Explorar</span>
+        </div>
+
+        <div class="icon" title="Notificações">
+          <i class="far fa-bell"></i>
+          <span class="icon__label">Notificações</span>
+        </div>
+
+        <div class="icon" title="Mensagens">
+          <i class="far fa-envelope"></i>
+          <span class="icon__label">Mensagens</span>
+        </div>
+
+        <div class="icon hiddable--lg" title="Itens Salvos">
+          <i class="far fa-bookmark"></i>
+          <span class="icon__label">Itens Salvos</span>
+        </div>
+
+        <div class="icon hiddable--lg" title="Listas">
+          <i class="fas fa-list"></i>
+          <span class="icon__label">Listas</span>
+        </div>
+
+        <div class="icon hiddable--md" title="Perfil">
+          <i class="far fa-user"></i>
+          <span class="icon__label">Perfil</span>
+        </div>
+
+        <div class="icon hiddable--md" title="Mais">
+          <i class="fas fa-ellipsis-h"></i>
+          <span class="icon__label">Mais</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="new_tweet new_tweet--round">
+          <i class="fas fa-plus"></i>
+        </button>
+
+        <button class="new_tweet new_tweet--full">
+          Tweetar
+        </button>
+
+        <button class="profile">
+          <figure>
+            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
+          </figure>
+
+          <div class="profile__info">
+            <span class="profile__name" title="SkyG0D">SkyG0DAAAAAAAAAAAAAAAAAAAAAAAAAA</span>
+            <span class="profile__at_sign" title="@skyg0d">@skyg0d</span>
+          </div>
+
+          <i class="fas fa-ellipsis-h"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
