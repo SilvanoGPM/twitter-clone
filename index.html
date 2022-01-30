@@ -19,18 +19,27 @@
 <body>
   <header class="header__container">
     <div class="header">
-      <div>
-        <h2 class="header__title">Página Inicial</h2>
+      <div class="header__actions">
+        <div>
+          <h2 class="header__title">Página Inicial</h2>
+        </div>
+
+        <div class="user__sparkless">
+          <svg width="100%" height="100%" viewBox="0 0 24 24">
+            <g>
+              <path
+                d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z">
+              </path>
+            </g>
+          </svg>
+        </div>
       </div>
 
-      <div class="user__sparkless">
-        <svg width="100%" height="100%" viewBox="0 0 24 24">
-          <g>
-            <path
-              d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z">
-            </path>
-          </g>
-        </svg>
+      <div class="header__search">
+        <div class="header__input">
+          <label for="search"><i class="fas fa-search"></i></label>
+          <input id="search" type="search" placeholder="Buscar no Twitter" />
+        </div>
       </div>
     </div>
 
@@ -109,7 +118,7 @@
           </figure>
 
           <div class="profile__info">
-            <span class="profile__name" title="SkyG0D">SkyG0DAAAAAAAAAAAAAAAAAAAAAAAAAA</span>
+            <span class="profile__name" title="SkyG0D">SkyG0D</span>
             <span class="profile__at_sign" title="@skyg0d">@skyg0d</span>
           </div>
 
@@ -124,8 +133,60 @@
 
     </section>
 
-    <section class="feed">
+    <section class="feed sticky">
+      <div class="feed__card">
+        <h2>O que está acontecendo</h2>
 
+        <div class="card__content card--hover">
+          <span class="card__text">Assunto do Momento no Brasil</span>
+          <p class="card__subject">React</p>
+          <span class="card__text">30,5 mil tweets</span>
+        </div>
+
+        <div class="card__content card--hover">
+          <div class="card__topic">
+            <span class="card__topic--before">Programação</span>
+            <span class="card__topic--after">Assunto do Momento</span>
+          </div>
+
+          <p class="card__subject">Javascript</p>
+          <span class="card__text">12,3 mil tweets</span>
+        </div>
+
+        <p class="card__more card--hover">Mostrar mais</p>
+      </div>
+
+      <div class="feed__card">
+        <h2>Quem seguir</h2>
+
+        <div class="card__user card--hover">
+          <figure class="card__avatar">
+            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
+          </figure>
+
+          <div class="card__info">
+            <p class="card__username">SkyG0D</p>
+            <p class="card__user_id">@skyg0d</p>
+          </div>
+
+          <button type="button">Seguir</button>
+        </div>
+
+        <div class="card__user card--hover">
+          <figure class="card__avatar">
+            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
+          </figure>
+
+          <div class="card__info">
+            <p class="card__username">SkyG0D</p>
+            <p class="card__user_id">@skyg0d</p>
+          </div>
+
+          <button type="button">Seguir</button>
+        </div>
+
+        <p class="card__more card--hover">Mostrar mais</p>
+      </div>
     </section>
   </main>
 
