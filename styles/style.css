@@ -108,6 +108,7 @@ body {
   top: 10px;
   left: 15px;
   transition: ease-in-out 0.1s;
+  cursor: pointer;
 }
 
 .user__avatar:hover {
@@ -470,6 +471,75 @@ body {
   transition: ease-in-out 0.1s;
 }
 
+.new_tweet--top {
+  display: none;
+  flex-direction: column;
+  margin-left: 70px;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.new_tweet--top input {
+  width: 100%;
+  border: none;
+  margin-left: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.new_tweet__global {
+  width: 280px;
+  text-align: center;
+  padding: 0.5rem;
+  color: var(--principal-color);
+  border-radius: 30px;
+  margin: 0.8rem 0;
+}
+
+.new_tweet__global:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+
+.new_tweet__actions {
+  border-top: 1px solid var(--secondary-color);
+  padding: 0.8rem 0;
+  margin-left: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new_tweet__emojis {
+  display: flex;
+}
+
+.new_tweet__emojis i {
+  color: var(--principal-color);
+  margin-right: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+  transition: ease-in-out 0.1s;
+  border-radius: 50%;
+}
+
+.new_tweet__emojis i:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+
+.new_tweet__actions button {
+  background-color: var(--principal-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 500px) {
@@ -492,6 +562,10 @@ body {
   .content {
     max-width: 598px;
     border-right: var(--secondary-color) 1px solid;
+  }
+
+  .new_tweet--top {
+    display: flex;
   }
 
   .header__title {
