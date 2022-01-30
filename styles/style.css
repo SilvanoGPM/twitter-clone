@@ -1,11 +1,15 @@
+/* Geral */
+
 :root {
+  --navbar-width: 100%;
+  --header-height: 53px;
+
   --border-color: #eff3f4;
   --background-color: #ffffff;
   --at-sing-color: #536471;
   --item-hover-color: #e7e7e8;
   --principal-color: #1d9bf0;
   --text-color: #0f1419;
-  --header-height: 53px;
   --white: #eff3f4;
 }
 
@@ -19,10 +23,67 @@ body {
   background-color: var(--background-color);
 }
 
+/* Header e NavBar */
+
 .header {
   position: fixed;
   width: 100%;
   height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: var(--border-color) 0px 1px 10px;
+  background-color: var(--background-color);
+}
+
+.header__title {
+  font-size: 1.1rem;
+  font-weight: bolder;
+  margin-left: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.user__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  transition: ease-in-out 0.1s;
+}
+
+.user__avatar:hover {
+  filter: brightness(0.95);
+}
+
+.user__avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.user__sparkless {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem;
+  border-radius: 50%;
+  transition: ease-in-out 0.1s;
+  cursor: pointer;
+}
+
+.user__sparkless:hover {
+  background-color: var(--item-hover-color);
+}
+
+.user__sparkless svg {
+  fill: var(--at-sing-color);
+  scale: 15;
 }
 
 .header__fix {
@@ -31,7 +92,7 @@ body {
 
 .navbar {
   height: 52.5px;
-  width: 100%;
+  width: var(--navbar-width);
   position: fixed;
   bottom: 0;
   border-top: var(--border-color) 1px solid;
@@ -57,6 +118,8 @@ body {
   transition: ease-in-out 0.2s;
   cursor: pointer;
   margin: 0;
+  width: 40px;
+  height: 40px;
   font-size: 1.5rem;
   position: relative;
 }
@@ -64,7 +127,7 @@ body {
 .icon .icon__ball {
   position: absolute;
   top: 7px;
-  left: 35px;
+  left: 30px;
   display: block;
   width: 8px;
   height: 8px;
@@ -221,6 +284,8 @@ body {
   display: none;
 }
 
+/* Conteúdo Principal */
+
 .main {
   min-height: 100vh;
   height: 100vh;
@@ -237,9 +302,35 @@ body {
   display: none;
 }
 
+/* Media Queries */
+
 @media screen and (min-width: 500px) {
+  :root {
+    --navbar-width: 16vw;
+  }
+
   .hiddable--md.hiddable--md {
     display: flex;
+  }
+
+  .header,
+  .content {
+    border-right: var(--border-color) 1px solid;
+    left: var(--navbar-width);
+    max-width: 598px;
+    width: calc(100vw - var(--navbar-width));
+  }
+
+  .header__title {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .user__avatar {
+    width: 45px;
+    height: 45px;
+    left: calc(var(--navbar-width) + 30px);
+    top: calc(var(--header-height) + 20px);
   }
 
   .navbar {
@@ -247,10 +338,10 @@ body {
     bottom: 0;
     height: 100%;
     min-width: calc(64px + 2rem);
-    width: 16vw;
+    width: --navbar-width;
     max-width: 193px;
     border-top: none;
-    border-right: var(--border-color) 2px solid;
+    border-right: var(--border-color) 1px solid;
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
@@ -280,12 +371,16 @@ body {
     align-items: center;
   }
 
+  .icon .icon__ball {
+    left: 35px;
+  }
+
   .profile {
     display: flex;
   }
 
   .content {
-    border-right: var(--border-color) 1px solid;
+    position: absolute;
   }
 }
 
@@ -294,8 +389,17 @@ body {
     display: flex;
   }
 
+  .header,
+  .content {
+    left: 193px;
+  }
+
+  .user__avatar {
+    left: calc(193px + 30px);
+  }
+
   .navbar {
-    width: 100%;
+    --navbar-width: 100%;
     align-items: flex-end;
     padding-right: 1rem;
   }
@@ -332,6 +436,15 @@ body {
     display: flex;
     flex: 1;
     font-size: 1.25rem;
+  }
+
+  .header,
+  .content {
+    left: 317px;
+  }
+
+  .user__avatar {
+    left: calc(317px + 20px);
   }
 
   .navbar {
