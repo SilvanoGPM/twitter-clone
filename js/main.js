@@ -6,8 +6,9 @@ const $themeModalContent = $themeModal.querySelector('[theme-modal-content]');
 const $colorButtons = $themeModal.querySelectorAll('[color-select]');
 const $backgroundButtons = $themeModal.querySelectorAll('[background-select]');
 
-function clearButtons($buttons) {
+function selectButton($buttons, target) {
   $buttons.forEach(($button) => $button.classList.remove('selected'));
+  target.classList.add('selected');
 }
 
 function openModal() {
@@ -20,30 +21,33 @@ function closeModal() {
 
 $colorButtons.forEach(($button) => {
   $button.addEventListener('click', ({ target }) => {
-    clearButtons($colorButtons);
-
     const color = target.getAttribute('color-select');
-    target.classList.add('selected');
-    document.documentElement.style.setProperty('--principal-color', color);
-    document.documentElement.style.setProperty('--principal-transparent-color', `${color}25`);
+
+    if (color) {
+      selectButton($colorButtons, target);
+
+      document.documentElement.style.setProperty('--principal-color', color);
+      document.documentElement.style.setProperty('--principal-transparent-color', `${color}25`);
+    }
+
   });
 });
 
 $backgroundButtons.forEach(($button) => {
   $button.addEventListener('click', ({ target }) => {
-    clearButtons($backgroundButtons);
+    const colors = target.getAttribute('background-select');
 
-    const [background, color, feedColor, hoverColor, borderColor] = target.getAttribute('background-select').split(', ');
+    if (colors) {
+      selectButton($backgroundButtons, target);
 
-    target.classList.add('selected');
+      const [background, color, feedColor, hoverColor, borderColor] = colors.split(', ');
 
-    console.log({ x: [background, color, feedColor, hoverColor, borderColor] });
-
-    document.documentElement.style.setProperty('--background-color', background);
-    document.documentElement.style.setProperty('--text-color', color);
-    document.documentElement.style.setProperty('--background-second-color', feedColor);
-    document.documentElement.style.setProperty('--item-hover-color', hoverColor);
-    document.documentElement.style.setProperty('--border-color', borderColor);
+      document.documentElement.style.setProperty('--background-color', background);
+      document.documentElement.style.setProperty('--text-color', color);
+      document.documentElement.style.setProperty('--background-second-color', feedColor);
+      document.documentElement.style.setProperty('--item-hover-color', hoverColor);
+      document.documentElement.style.setProperty('--border-color', borderColor);
+    }
   });
 });
 
