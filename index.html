@@ -1,214 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/all.min.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
 
-  <link rel="stylesheet" href="./styles/reset.css" />
-  <link rel="stylesheet" href="./styles/all.min.css" />
-  <link rel="stylesheet" href="./styles/fonts.css" />
-  <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
 
-  <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <title>Página Inicial / Twitter Clone</title>
+  </head>
 
-  <title>Página Inicial / Twitter Clone</title>
-</head>
+  <body>
+    <header class="header__container">
+      <div class="header">
+        <div class="header__actions">
+          <div>
+            <h2 class="header__title">Página Inicial</h2>
+          </div>
 
-<body>
-  <header class="header__container">
-    <div class="header">
-      <div class="header__actions">
-        <div>
-          <h2 class="header__title">Página Inicial</h2>
+          <div class="user__sparkless">
+            <svg width="100%" height="100%" viewBox="0 0 24 24">
+              <g>
+                <path
+                  d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"
+                ></path>
+              </g>
+            </svg>
+          </div>
         </div>
 
-        <div class="user__sparkless">
-          <svg width="100%" height="100%" viewBox="0 0 24 24">
-            <g>
-              <path
-                d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z">
-              </path>
-            </g>
-          </svg>
+        <div class="header__search">
+          <div class="header__input">
+            <label for="search"><i class="fas fa-search"></i></label>
+            <input id="search" type="search" placeholder="Buscar no Twitter" />
+          </div>
         </div>
       </div>
 
-      <div class="header__search">
-        <div class="header__input">
-          <label for="search"><i class="fas fa-search"></i></label>
-          <input id="search" type="search" placeholder="Buscar no Twitter" />
+      <div class="header__fix"></div>
+
+      <figure class="user__avatar">
+        <img
+          alt="User Avatar"
+          src="https://avatars.githubusercontent.com/u/59753526?v=4"
+        />
+      </figure>
+
+      <nav class="navbar">
+        <div class="navbar__content">
+          <a href="#" class="hiddable--md">
+            <figure class="logo">
+              <img alt="logo" src="assets/favicon.png" />
+            </figure>
+          </a>
+
+          <div class="icon icon--selected" title="Página Inicial">
+            <i class="fas fa-home"></i>
+            <span class="icon__ball"></span>
+            <span class="icon__label">Página Inicial</span>
+          </div>
+
+          <div class="icon icon--search" title="Pesquisar">
+            <i class="fas fa-search"></i>
+          </div>
+
+          <div class="icon icon--exploration" title="Explorar">
+            <i class="fas fa-hashtag"></i>
+            <span class="icon__label">Explorar</span>
+          </div>
+
+          <div class="icon" title="Notificações">
+            <i class="far fa-bell"></i>
+            <span class="icon__label">Notificações</span>
+          </div>
+
+          <div class="icon" title="Mensagens">
+            <i class="far fa-envelope"></i>
+            <span class="icon__label">Mensagens</span>
+          </div>
+
+          <div class="icon hiddable--lg" title="Itens Salvos">
+            <i class="far fa-bookmark"></i>
+            <span class="icon__label">Itens Salvos</span>
+          </div>
+
+          <div class="icon hiddable--lg" title="Listas">
+            <i class="fas fa-list"></i>
+            <span class="icon__label">Listas</span>
+          </div>
+
+          <div class="icon hiddable--md" title="Perfil">
+            <i class="far fa-user"></i>
+            <span class="icon__label">Perfil</span>
+          </div>
+
+          <div open-modal-button class="icon hiddable--md" title="Mais">
+            <i class="fas fa-ellipsis-h"></i>
+            <span class="icon__label">Mais</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="new_tweet new_tweet--round">
+            <i class="fas fa-plus"></i>
+          </button>
+
+          <button class="new_tweet new_tweet--full">Tweetar</button>
+
+          <button class="profile">
+            <figure>
+              <img
+                alt="User Avatar"
+                src="https://avatars.githubusercontent.com/u/59753526?v=4"
+              />
+            </figure>
+
+            <div class="profile__info">
+              <span class="profile__name" title="SkyG0D">SkyG0D</span>
+              <span class="profile__at_sign" title="@skyg0d">@skyg0d</span>
+            </div>
+
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="content">
+        <div class="new_tweet--top">
+          <input type="text" placeholder="O que está acontecendo?" />
+
+          <div class="new_tweet__global">
+            <i class="fas fa-globe-americas"></i>
+            <span>Qualquer pessoa pode responder</span>
+          </div>
+
+          <div class="new_tweet__actions">
+            <div class="new_tweet__emojis">
+              <i class="fas fa-images"></i>
+              <i class="far fa-file-alt"></i>
+              <i class="fas fa-chart-bar"></i>
+              <i class="far fa-smile-beam"></i>
+              <i class="far fa-calendar"></i>
+            </div>
+
+            <button type="button">Tweetar</button>
+          </div>
+        </div>
+
+        <div class="tweets">
+          <div class="tweet">
+            <div class="tweet__more">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+
+            <div class="info">
+              <figure class="user">
+                <img alt="User Avatar" src="./assets/gatos_avatar.jpg" />
+              </figure>
+
+              <div>
+                <div class="tweet__content">
+                  <div class="posted">
+                    <div class="posted__title">
+                      <h3 class="tweet__username">gatos fazendo gatices</h3>
+                      <p class="tweet__user_id">@gatinarios</p>
+                    </div>
+                    <p>· <span class="tweet__time">7 min</span></p>
+                  </div>
+
+                  <figure>
+                    <img alt="Tweet" src="./assets/gatos_tweet1.jpg" />
+                  </figure>
+                </div>
+
+                <div class="tweet__actions">
+                  <div class="tweet__action">
+                    <i class="far fa-comment"></i>
+                    <span>5</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="far fa-heart"></i>
+                    <span>188</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-retweet"></i>
+                    <span>1,8 mil</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-share-alt"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tweet">
+            <div class="tweet__more">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+
+            <div class="info">
+              <figure class="user">
+                <img alt="User Avatar" src="./assets/gatos_avatar.jpg" />
+              </figure>
+
+              <div>
+                <div class="tweet__content">
+                  <div class="posted">
+                    <div class="posted__title">
+                      <h3 class="tweet__username">gatos fazendo gatices</h3>
+                      <p class="tweet__user_id">@gatinarios</p>
+                    </div>
+                    <p>· <span class="tweet__time">7 min</span></p>
+                  </div>
+
+                  <p class="tweet__comment">
+                    tá me olhando assim por que parça???????
+                  </p>
+
+                  <figure>
+                    <img alt="Tweet" src="./assets/gatos_tweet2.jpg" />
+                  </figure>
+                </div>
+
+                <div class="tweet__actions">
+                  <div class="tweet__action">
+                    <i class="far fa-comment"></i>
+                    <span>12</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="far fa-heart"></i>
+                    <span>351</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-retweet"></i>
+                    <span>6,2 mil</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-share-alt"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tweet">
+            <div class="tweet__more">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+
+            <div class="info">
+              <figure class="user">
+                <img alt="User Avatar" src="./assets/gatos_avatar.jpg" />
+              </figure>
+
+              <div>
+                <div class="tweet__content">
+                  <div class="posted">
+                    <div class="posted__title">
+                      <h3 class="tweet__username">gatos fazendo gatices</h3>
+                      <p class="tweet__user_id">@gatinarios</p>
+                    </div>
+                    <p>· <span class="tweet__time">7 min</span></p>
+                  </div>
+
+                  <p class="tweet__comment">5 sachês e pode passar</p>
+
+                  <figure>
+                    <img alt="Tweet" src="./assets/gatos_tweet3.jpg" />
+                  </figure>
+                </div>
+
+                <div class="tweet__actions">
+                  <div class="tweet__action">
+                    <i class="far fa-comment"></i>
+                    <span>3</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="far fa-heart"></i>
+                    <span>54</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-retweet"></i>
+                    <span>1,2 mil</span>
+                  </div>
+
+                  <div class="tweet__action">
+                    <i class="fas fa-share-alt"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feed sticky">
+        <div class="feed__card">
+          <h2>O que está acontecendo</h2>
+
+          <div class="card__content card--hover">
+            <span class="card__text">Assunto do Momento no Brasil</span>
+            <p class="card__subject">React</p>
+            <span class="card__text">30,5 mil tweets</span>
+          </div>
+
+          <div class="card__content card--hover">
+            <div class="card__topic">
+              <span class="card__topic--before">Programação</span>
+              <span class="card__topic--after">Assunto do Momento</span>
+            </div>
+
+            <p class="card__subject">Javascript</p>
+            <span class="card__text">12,3 mil tweets</span>
+          </div>
+
+          <p class="card__more card--hover">Mostrar mais</p>
+        </div>
+
+        <div class="feed__card">
+          <h2>Quem seguir</h2>
+
+          <div class="card__user card--hover">
+            <figure class="card__avatar">
+              <img
+                alt="User Avatar"
+                src="https://avatars.githubusercontent.com/u/59753526?v=4"
+              />
+            </figure>
+
+            <div class="card__info">
+              <p class="card__username">SkyG0D</p>
+              <p class="card__user_id">@skyg0d</p>
+            </div>
+
+            <button type="button">Seguir</button>
+          </div>
+
+          <div class="card__user card--hover">
+            <figure class="card__avatar">
+              <img
+                alt="User Avatar"
+                src="https://avatars.githubusercontent.com/u/59753526?v=4"
+              />
+            </figure>
+
+            <div class="card__info">
+              <p class="card__username">SkyG0D</p>
+              <p class="card__user_id">@skyg0d</p>
+            </div>
+
+            <button type="button">Seguir</button>
+          </div>
+
+          <p class="card__more card--hover">Mostrar mais</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="theme-modal" theme-modal>
+      <button class="close-modal-button" close-modal-button>
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="theme-modal-content" theme-modal-content>
+        <h2>Cor</h2>
+
+        <div class="color-group">
+          <span
+            class="color-select selected"
+            style="--color: #1d9bf0"
+            color-select="#1d9bf0"
+          >
+            <i class="fas fa-check"></i>
+          </span>
+          <span
+            class="color-select"
+            style="--color: #ffd400"
+            color-select="#ffd400"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="color-select"
+            style="--color: #f91880"
+            color-select="#f91880"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="color-select"
+            style="--color: #7856ff"
+            color-select="#7856ff"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="color-select"
+            style="--color: #ff7a00"
+            color-select="#ff7a00"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="color-select"
+            style="--color: #00ba7c"
+            color-select="#00ba7c"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+        </div>
+
+        <h2>Plano de Fundo</h2>
+
+        <div class="color-group backgrounds-select">
+          <span
+            class="background-select selected"
+            style="--color: #ffffff"
+            background-select="#ffffff, #0f1419, #f7f9f9, #00000011, #eff3f4"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="background-select"
+            style="--color: #15202b"
+            background-select="#15202b, #ffffff, #192734, #ffffff11, #38444d"
+          >
+            <i class="fas fa-check"></i
+          ></span>
+          <span
+            class="background-select"
+            style="--color: #000000"
+            background-select="#000000, #ffffff, #15181c, #ffffff11, #15181c"
+          >
+            <i class="fas fa-check"></i
+          ></span>
         </div>
       </div>
     </div>
 
-    <div class="header__fix"></div>
-
-    <figure class="user__avatar">
-      <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
-    </figure>
-
-    <nav class="navbar">
-      <div class="navbar__content">
-        <a href="#" class="hiddable--md">
-          <figure class="logo">
-            <img alt="logo" src="assets/favicon.png" />
-          </figure>
-        </a>
-
-        <div class="icon icon--selected" title="Página Inicial">
-          <i class="fas fa-home"></i>
-          <span class="icon__ball"></span>
-          <span class="icon__label">Página Inicial</span>
-        </div>
-
-        <div class="icon icon--search" title="Pesquisar">
-          <i class="fas fa-search"></i>
-        </div>
-
-        <div class="icon icon--exploration" title="Explorar">
-          <i class="fas fa-hashtag"></i>
-          <span class="icon__label">Explorar</span>
-        </div>
-
-        <div class="icon" title="Notificações">
-          <i class="far fa-bell"></i>
-          <span class="icon__label">Notificações</span>
-        </div>
-
-        <div class="icon" title="Mensagens">
-          <i class="far fa-envelope"></i>
-          <span class="icon__label">Mensagens</span>
-        </div>
-
-        <div class="icon hiddable--lg" title="Itens Salvos">
-          <i class="far fa-bookmark"></i>
-          <span class="icon__label">Itens Salvos</span>
-        </div>
-
-        <div class="icon hiddable--lg" title="Listas">
-          <i class="fas fa-list"></i>
-          <span class="icon__label">Listas</span>
-        </div>
-
-        <div class="icon hiddable--md" title="Perfil">
-          <i class="far fa-user"></i>
-          <span class="icon__label">Perfil</span>
-        </div>
-
-        <div class="icon hiddable--md" title="Mais">
-          <i class="fas fa-ellipsis-h"></i>
-          <span class="icon__label">Mais</span>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="new_tweet new_tweet--round">
-          <i class="fas fa-plus"></i>
-        </button>
-
-        <button class="new_tweet new_tweet--full">
-          Tweetar
-        </button>
-
-        <button class="profile">
-          <figure>
-            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
-          </figure>
-
-          <div class="profile__info">
-            <span class="profile__name" title="SkyG0D">SkyG0D</span>
-            <span class="profile__at_sign" title="@skyg0d">@skyg0d</span>
-          </div>
-
-          <i class="fas fa-ellipsis-h"></i>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <main class="main">
-    <section class="content">
-      <div class="new_tweet--top">
-        <input type="text" placeholder="O que está acontecendo?" />
-
-        <div class="new_tweet__global">
-          <i class="fas fa-globe-americas"></i>
-          <span>Qualquer pessoa pode responder</span>
-        </div>
-
-        <div class="new_tweet__actions">
-          <div class="new_tweet__emojis">
-            <i class="fas fa-images"></i>
-            <i class="far fa-file-alt"></i>
-            <i class="fas fa-chart-bar"></i>
-            <i class="far fa-smile-beam"></i>
-            <i class="far fa-calendar"></i>
-          </div>
-
-          <button type="button">Tweetar</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="feed sticky">
-      <div class="feed__card">
-        <h2>O que está acontecendo</h2>
-
-        <div class="card__content card--hover">
-          <span class="card__text">Assunto do Momento no Brasil</span>
-          <p class="card__subject">React</p>
-          <span class="card__text">30,5 mil tweets</span>
-        </div>
-
-        <div class="card__content card--hover">
-          <div class="card__topic">
-            <span class="card__topic--before">Programação</span>
-            <span class="card__topic--after">Assunto do Momento</span>
-          </div>
-
-          <p class="card__subject">Javascript</p>
-          <span class="card__text">12,3 mil tweets</span>
-        </div>
-
-        <p class="card__more card--hover">Mostrar mais</p>
-      </div>
-
-      <div class="feed__card">
-        <h2>Quem seguir</h2>
-
-        <div class="card__user card--hover">
-          <figure class="card__avatar">
-            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
-          </figure>
-
-          <div class="card__info">
-            <p class="card__username">SkyG0D</p>
-            <p class="card__user_id">@skyg0d</p>
-          </div>
-
-          <button type="button">Seguir</button>
-        </div>
-
-        <div class="card__user card--hover">
-          <figure class="card__avatar">
-            <img alt="User Avatar" src="https://avatars.githubusercontent.com/u/59753526?v=4" />
-          </figure>
-
-          <div class="card__info">
-            <p class="card__username">SkyG0D</p>
-            <p class="card__user_id">@skyg0d</p>
-          </div>
-
-          <button type="button">Seguir</button>
-        </div>
-
-        <p class="card__more card--hover">Mostrar mais</p>
-      </div>
-    </section>
-  </main>
-
-</body>
-
+    <script src="./js/main.js"></script>
+  </body>
 </html>
