@@ -215,6 +215,22 @@ body {
   display: none;
 }
 
+.icon__quantity {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  background-color: var(--principal-color);
+  color: var(--white);
+  font-size: 14px;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
 .logo {
   height: 56px;
   width: 56px;
