@@ -1,3 +1,7 @@
+import { randomInt } from './modules/random.mjs';
+
+const $tweetButton = document.querySelector('[data-js="tweet-button"]');
+const $tweetDescription = document.querySelector('[data-js="tweet-description"]');
 const $tweetContainer = document.querySelector('[data-js="tweets"]');
 
 const tweets = [
@@ -60,14 +64,21 @@ function getDescription(description) {
   ) : "";
 }
 
+function getImage(image, description) {
+  return image ? (
+    `\
+      <figure style="${description ? 'margin-top: 1rem' : ''}">
+        <img alt="Tweet" src="${image}" />
+     </figure>`
+  ) : '';
+}
+
 function formatMetric(metric) {
   return metric < 1000 ? metric : `${(metric / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 })} mil`;
 }
 
-function getTweetsHTML() {
-  const mappedTweets = tweets.map(({ description, image, metrics, page, time }) => {
-
-    return `\
+function toTweetString({ description, image, metrics, page, time }) {
+  return `\
       <div class="tweet">
         <div class="tweet__more">
           <i class="fas fa-ellipsis-h"></i>
@@ -78,7 +89,7 @@ function getTweetsHTML() {
             <img alt="User Avatar" src="${page.image}" />
           </figure>
 
-          <div>
+          <div style="width: 100%;">
             <div class="tweet__content">
               <div class="posted">
                 <div class="posted__title">
@@ -90,9 +101,9 @@ function getTweetsHTML() {
 
               ${getDescription(description)}
 
-              <figure>
-                <img alt="Tweet" src="${image}" />
-              </figure>
+              ${getImage(image, description)}
+
+
             </div>
 
             <div class="tweet__actions">
@@ -120,10 +131,42 @@ function getTweetsHTML() {
         </div>
       </div>
     `;
-
-  });
-
-  return mappedTweets.join(' ');
 }
 
-$tweetContainer.innerHTML += getTweetsHTML();
+function setupTweets() {
+  const mappedTweets = tweets.map(toTweetString);
+  $tweetContainer.innerHTML += mappedTweets.join(' ');
+}
+
+function handleTweetButtonClick() {
+  const description = $tweetDescription.value.trim();
+
+  if (!description) {
+    return;
+  }
+
+  const image = 'https://avatars.githubusercontent.com/u/59753526?v=4';
+  const time = 'now';
+
+  const metrics = {
+    comments: randomInt(0, 500),
+    likes: randomInt(0, 1200),
+    retweets: randomInt(0, 1200),
+  };
+
+  const page = {
+    name: 'SkyG0D',
+    id: 'skyg0d',
+    image,
+  };
+
+  const tweet = document.createElement('div');
+  tweet.innerHTML = toTweetString({ description, time, metrics, page });
+  $tweetContainer.insertBefore(tweet, $tweetContainer.firstChild);
+
+  $tweetDescription.value = '';
+}
+
+setupTweets();
+
+$tweetButton.addEventListener('click', handleTweetButtonClick);

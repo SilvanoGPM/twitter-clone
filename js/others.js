@@ -1,7 +1,7 @@
+import { randomInt } from './modules/random.mjs';
+
 const $notifications = document.querySelector('[data-js="notification"]');
 
-function randomInt() {
-  return Math.floor(Math.random() * 100) + 1;
-}
+const notifications = randomInt();
 
-$notifications.textContent = randomInt();
+$notifications.textContent = `${notifications >= 100 ? '+99' : notifications}`;

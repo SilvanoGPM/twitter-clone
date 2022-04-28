@@ -527,7 +527,6 @@ body {
 
 .new_tweet__actions {
   border-top: 1px solid var(--border-color);
-  padding: 0.8rem 0;
   margin-left: 0.8rem;
   display: flex;
   justify-content: space-between;
@@ -599,7 +598,6 @@ body {
 }
 
 .tweet__comment {
-  margin-bottom: 1rem;
   margin-top: -0.5rem;
 }
 
@@ -812,10 +810,6 @@ body {
   .header__actions,
   .tweets {
     border-right: var(--border-color) 1px solid;
-  }
-
-  .tweet__actions {
-    padding: 0 1rem;
   }
 
   .new_tweet--top {

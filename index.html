@@ -135,7 +135,7 @@
     <main class="main">
       <section class="content">
         <div class="new_tweet--top">
-          <input type="text" placeholder="O que está acontecendo?" />
+          <input type="text" placeholder="O que está acontecendo?" data-js="tweet-description" />
 
           <div class="new_tweet__global">
             <i class="fas fa-globe-americas"></i>
@@ -151,7 +151,7 @@
               <i class="far fa-calendar"></i>
             </div>
 
-            <button type="button">Tweetar</button>
+            <button type="button" data-js="tweet-button">Tweetar</button>
           </div>
         </div>
 
@@ -305,7 +305,7 @@
     </div>
 
     <script src="./js/main.js"></script>
-    <script src="./js/tweets.js"></script>
-    <script src="./js/others.js"></script>
+    <script type="module" src="./js/others.js"></script>
+    <script type="module" src="./js/tweets.js"></script>
   </body>
 </html>
