@@ -1,4 +1,7 @@
 import { randomInt } from './modules/random.mjs';
+import Repository from './modules/repository.mjs';
+
+const TWEETS_KEY = '@TwitterClone/TWEETS';
 
 const $tweetButton = document.querySelector('[data-js="tweet-button"]');
 const $tweetDescription = document.querySelector('[data-js="tweet-description"]');
@@ -57,7 +60,7 @@ const tweets = [
 function getDescription(description) {
   return description ? (
     `
-      <p class="tweet__comment">
+      <p class="tweet__comment" data-user-description>
         ${description}
       </p>
     `
@@ -77,26 +80,26 @@ function formatMetric(metric) {
   return metric < 1000 ? metric : `${(metric / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 })} mil`;
 }
 
-function toTweetString({ description, image, metrics, page, time }) {
+function toTweetString({ description, image, metrics, page, time, userTweet = false }) {
   return `\
-      <div class="tweet">
+      <div class="tweet" ${userTweet ? 'data-user-tweet' : ''}>
         <div class="tweet__more">
           <i class="fas fa-ellipsis-h"></i>
         </div>
 
         <div class="info">
           <figure class="user">
-            <img alt="User Avatar" src="${page.image}" />
+            <img alt="User Avatar" src="${page.image}" data-user-image />
           </figure>
 
           <div style="width: 100%;">
             <div class="tweet__content">
               <div class="posted">
                 <div class="posted__title">
-                  <h3 class="tweet__username">${page.name}</h3>
-                  <p class="tweet__user_id">@${page.id}</p>
+                  <h3 class="tweet__username" data-user-name>${page.name}</h3>
+                  <p class="tweet__user_id" data-user-id>@${page.id}</p>
                 </div>
-                <p>· <span class="tweet__time">${time}</span></p>
+                <p>· <span class="tweet__time" data-user-time>${time}</span></p>
               </div>
 
               ${getDescription(description)}
@@ -135,7 +138,8 @@ function toTweetString({ description, image, metrics, page, time }) {
 
 function setupTweets() {
   const mappedTweets = tweets.map(toTweetString);
-  $tweetContainer.innerHTML += mappedTweets.join(' ');
+  const userMappedTweets = Repository.get(TWEETS_KEY) || [];
+  $tweetContainer.innerHTML += userMappedTweets.join(' ') + mappedTweets.join(' ');
 }
 
 function handleTweetButtonClick() {
@@ -161,10 +165,15 @@ function handleTweetButtonClick() {
   };
 
   const tweet = document.createElement('div');
-  tweet.innerHTML = toTweetString({ description, time, metrics, page });
+  const stringTweet = toTweetString({ description, time, metrics, page, userTweet: true });
+  tweet.innerHTML = stringTweet;
   $tweetContainer.insertBefore(tweet, $tweetContainer.firstChild);
 
   $tweetDescription.value = '';
+
+  const tweets = Repository.get(TWEETS_KEY) || [];
+
+  Repository.save(TWEETS_KEY, [stringTweet, ...tweets]);
 }
 
 setupTweets();
